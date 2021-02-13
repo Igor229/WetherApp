@@ -7,39 +7,85 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="wrapper">
 			<header class="header">
-				<img src="img/stathem wether.png" alt="" class="logo">
+				<img src="images/stathem wether.png" alt="" class="logo">
 			</header>
 
-			<!-- ___________pizhdena__kartochka____________________________pogoda_______________________________________________ -->
-		<div class="center">
-  			<div class="property-card">
-    			<a href="#">
-      				<div class="property-image">
-        				<div class="property-image-title">
-          					<!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
-        				</div>
-      				</div>
-      			</a>
 
-    			<div class="property-description">
-      				<h5 class="city_name"></h5>
-      				<h5 class="temp"></h5>
-      				<p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    			</div>
+			<div class="wether">
+				<div class="wether__inner">
+					<div class="current">
+						<div class="current__city"> -- </div>
+						<div class="current__temp"></div>
+					</div>						
+					<!-- блок на години  -->
+					<div class="forecast">
+						<div class="forecast__items">
+							<div class="forecast__time">00:00</div>
+          					<div class="forecast__icon icon__01d"></div>
+							<div class="forecat__temp">-11&deg</div>
+						</div>
 
-    			<a href="#">
-      				<div class="property-social-icons">
-      				</div>
-    			</a>
-  			</div>
-		</div>
-			<!-- ___________pizhdena__kartochka____________________________pogoda_______________________________________________ -->
+						<div class="forecast__items">
+							<div class="forecast__time">03:00</div>
+          					<div class="forecast__icon icon__01d"></div>
+							<div class="forecat__temp">-14&deg</div>
+						</div>
+
+						<div class="forecast__items">
+							<div class="forecast__time">06:00</div>
+          					<div class="forecast__icon icon__04d"></div>
+							<div class="forecat__temp">-12&deg</div>
+						</div>
+
+						<div class="forecast__items">
+							<div class="forecast__time">09:00</div>
+          					<div class="forecast__icon icon__04d"></div>
+							<div class="forecat__temp">-8&deg</div>
+						</div>
+
+						<div class="forecast__items">
+							<div class="forecast__time">12:00</div>
+          					<div class="forecast__icon icon__02d"></div>
+							<div class="forecat__temp">-7&deg</div>
+						</div>
+
+						<div class="forecast__items">
+							<div class="forecast__time">15:00</div>
+          					<div class="forecast__icon icon__02d"></div>
+							<div class="forecat__temp">-6&deg</div>
+						</div>
 
 
-	</div>
+					</div>
 
+					<div class="details">
+						<div class="details__row">
+							<div class="details__item feelslike">
+								<div class="details__name">Відчувається як</div>
+								<div class="details__value">30&deg</div>
+							</div>
+
+							<div class="details__item humidity">
+								<div class="details__name">Вологість</div>
+								<div class="details__value">90%</div>
+							</div>
+						</div>
+
+						<div class="details__row">
+							<div class="details__item pressure">
+								<div class="details__name">Тиск, мм</div>
+								<div class="details__value">750</div>
+							</div>
+
+							<div class="details__item wind">
+								<div class="details__name">Вітер</div>
+								<div class="details__value">10 м/с</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
 
 	<script src="js/script.js"></script>		
 	

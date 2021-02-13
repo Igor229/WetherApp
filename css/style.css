@@ -1,166 +1,155 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 body {
 	background-image: url("jason.png");
 	background-repeat: no-repeat;
-	background-position: right top;
+	background-position: 120% 40%;
 	background-attachment: fixed;
 }
 
-.wrapper {
-	max-width: 1100px;
-	margin: 0 auto;
-}
-
-
 .header {
-	text-align: center;
-	align-items: center;
-}
-
-
-
-
-
-
-
-
-/* _________________________________________________________pizhdena cartochka__________________________________________________*/
-/*______________________________------------------______-----------_____---------______-----_______________-----------------_______---*/
-
-
- body
-{
-  background-color:#f2f2f2;
-  font-family: 'RobotoDraft', 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-*
-{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-h5
-{
-  margin:0px;
-  font-size:1.4em;
-  font-weight:700;
-}
-
-p
-{
-  font-size:12px;
-}
-
-.center
-{
-  height:100vh;
-  width:100%;
-  display: flex;
-  justify-content: center;
+  text-align: center;
   align-items: center;
 }
 
-/* End Non-Essential  */
-
-.property-card
-{
-  height:18em;
-  width:14em;
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  -webkit-box-orient:vertical;
-  -webkit-box-direction:normal;
-  -ms-flex-direction:column;
-  flex-direction:column;
-  position:relative;
-  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  border-radius:16px;
-  overflow:hidden;
-  -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
-  box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
-}
-/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
-
-/* Top Half of card, image. */
-
-.property-image
-{
-  height:6em;
-  width:14em;
-  padding:1em 2em;
-  position:Absolute;
-  top:0px;
-  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-image:url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
-  background-size:cover;
-  background-repeat:no-repeat;
+.wether {
+  padding: 0;
+	margin: 0;
 }
 
-/* Bottom Card Section */
 
-.property-description
-{
-  background-color: #FAFAFC;
-  height:12em;
-  width:14em;
-  position:absolute;
-  bottom:0em;
-  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  padding: 0.5em 1em;
-  text-align:center;
+.wether__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
 }
 
-/* Social Icons */
 
-.property-social-icons
-{
-  width:1em;
-  height:1em;
-  background-color:black;
-  position:absolute;
-  bottom:1em;
-  left:1em;
-  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+.current {
+  font-family: Anton;
+  text-align: center;
+  margin-bottom: 2em;
 }
 
-/* Property Cards Hover States */
-
-.property-card:hover .property-description
-{
-  height:0em;
-  padding:0px 1em;
-}
-.property-card:hover .property-image
-{
-  height:18em;
+.current__city {
+  font-size: 3em;
+  color: #5a5a5a;
 }
 
-.property-card:hover .property-social-icons
-{
-  background-color:white;
+.current__temp {
+  color: #5a5a5a;
+  font-size: 4em;
 }
 
-.property-card:hover .property-social-icons:hover
-{
-  background-color:blue;
-  cursor:pointer;
+
+.forecast {
+  font-family: oswald, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  color: #5a5a5a;
+  text-align: center;
+  margin-left: -80px;
+  margin-bottom: 2em;
 }
 
-/*______________________________------------------______-----------_____---------______-----_______________-----------------_______---*/
-/*______________________________------------------______-----------_____---------______-----_______________-----------------_______---*/
-/*______________________________------------------______-----------_____---------______-----_______________-----------------_______---*/
+.forecast__icon {
+  width: 80px;
+  height: 80px;
+}
 
+.details {
+  font-family: Oswald, sans-serif;
+  color: #5a5a5a;
+  margin-left: 250px;
+}
+
+.details__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  font-size: 20px;
+}
+
+.details__item {
+  flex: 1;
+}
+
+.details__name {
+}
+
+.details__value {
+  font-style: 1.5em;
+}
+
+
+
+
+
+.icon__01d,
+.icon__01n,
+.icon__02d,
+.icon__02n,
+.icon__03d,
+.icon__03n,
+.icon__04d,
+.icon__04n,
+.icon__09d,
+.icon__09n,
+.icon__10d,
+.icon__10n,
+.icon__11n,
+.icon__11n,
+.icon__13d,
+.icon__13n,
+.icon__50d,
+.icon__50n {
+  background-size: 80px;
+  background-repeat: no-repeat;
+}
+
+.icon__01d,
+.icon__01n {
+  background-image: url("../images/01d.png");
+}
+
+.icon__02d,
+.icon__02n {
+  background-image: url("../images/02d.png");
+}
+
+.icon__03d,
+.icon__03n {
+  background-image: url("../images/03d.png");
+}
+
+.icon__04d,
+.icon__04n {
+  background-image: url("../images/04d.png");
+}
+
+.icon__09d,
+.icon__09n {
+  background-image: url("../images/09d.png");
+}
+
+.icon__10d,
+.icon__10n {
+  background-image: url("../images/10d.png");
+}
+
+.icon__11n,
+.icon__11n {
+  background-image: url("../images/11d.png");
+}
+
+.icon__13d,
+.icon__13n {
+  background-image: url("../images/13d.png");
+}
+
+.icon__50d,
+.icon__50n {
+  background-image: url("../images/50d.png");
+}
