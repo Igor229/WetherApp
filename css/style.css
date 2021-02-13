@@ -76,9 +76,6 @@ body {
   flex: 1;
 }
 
-.details__name {
-}
-
 .details__value {
   font-style: 1.5em;
 }
