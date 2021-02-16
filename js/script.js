@@ -1,13 +1,22 @@
-  fetch ('http://api.openweathermap.org/data/2.5/weather?id=707471&appid=742198c70f710c4c4e1999121c8c386b')
+   fetch ('http://api.openweathermap.org/data/2.5/forecast?q=Ivano-Frankivsk&cnt=16&appid=742198c70f710c4c4e1999121c8c386b')
+
 	.then (function (resp) { return resp.json() }) //convert to json
 	.then (function (data) {
 		console.log(data);
-		document.querySelector('.current__city').textContent = data.name;
-		document.querySelector('.current__temp').innerHTML = Math.round(data.main.temp - 273.15) + '&deg;';
-		document.querySelector('.feelslike').innerHTML = Math.round(data.main.feels_like - 273.15) + '&deg;';
-		document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
-		document.querySelector('.pressure').innerHTML = Math.round(data.main.pressure / 1.33) + "мм";
-		document.querySelector('.wind').innerHTML = Math.round(data.wind.speed) + "м/с";
+		document.querySelector('.current__city').textContent = data.city.name;
+		document.querySelector('.current__date').innerHTML = data.list[0].dt_txt;
+		document.querySelector('.current__temp').innerHTML = Math.round(data.list[0].main.temp - 273.15) + '&deg;';
+		document.querySelector('.feelslike').innerHTML = Math.round(data.list[0].main.feels_like - 273.15) + '&deg;';
+		document.querySelector('.humidity').innerHTML = data.list[0].main.humidity + "%";
+		document.querySelector('.pressure').innerHTML = Math.round(data.list[0].main.pressure / 1.33) + "мм";
+		document.querySelector('.wind').innerHTML = Math.round(data.list[0].wind.speed) + "м/с";
+	})
+
+	fetch ('https://api.openweathermap.org/data/2.5/onecall?lat=48.5&lon=24.5&appid=742198c70f710c4c4e1999121c8c386b')
+	.then (function (resp) { return resp.json() }) //convert to json
+	.then (function (data1) {
+		console.log(data1);
+		getNextDaysDetails(data1);
 	})
 
 	Number.prototype.pad = function(size) {
@@ -25,7 +34,7 @@
 		}
 
 
-	function getIcon (data) {
+	function getForecastDetails (data) {
 		let forecastDataContainer = document.querySelector('.forecast');
 		let forecasts = ''
 
@@ -48,6 +57,37 @@
 	}
 
 
+
+	function getNextDaysDetails(data1) {
+		let ndaysDataContainer = document.querySelector('.next__days');
+		let ndays = ''
+
+		for (let i = 1; i < 4; i++) {
+			let item = data1.daily[i];
+
+
+			let icon = item.weather[0].icon;
+			let mintemp = getTemperature(item.temp.min -273.15);
+			let maxtemp = getTemperature(item.temp.max -273.15);
+			let date = new Date(data1.daily[i].dt * 1000);
+			var options = {weekday: 'long'};
+			date = new Intl.DateTimeFormat('uk', options).format(date);
+
+			let ntemplate = `<div class="ndays__items">
+				<div class="next__date"> ${date} </div>
+				<div class="next__icon icon__${icon}"></div>
+				<div class="next__temp">
+					<div class="next__mintemp">мін.${mintemp}</div>
+					<div class="next__maxtemp">макс.${maxtemp}</div>
+				</div>
+			</div>`;
+			ndays += ntemplate;
+		}
+		ndaysDataContainer.innerHTML = ndays;
+	}
+
+
+
 	const temperatureUnit = '˚';
 	const humidityUnit = ' %';
 	const pressureUnit = ' мм. рт. ст.';
@@ -56,7 +96,7 @@
 	var currentData;
 
 	async function getData() {
-	  let response = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Ivano-Frankivsk&appid=742198c70f710c4c4e1999121c8c386b');
+	  let response = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Ivano-Frankivsk&cnt = 16&appid=742198c70f710c4c4e1999121c8c386b');
 
 	  if (response.ok) {
 	    let jsonData = response.json();
@@ -80,8 +120,7 @@
 	}
 
 	function render(data) {
-	  getIcon(data);
-
+	  getForecastDetails(data);
 	}
 
 	function start() {

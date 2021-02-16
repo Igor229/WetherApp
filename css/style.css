@@ -9,6 +9,10 @@ body {
 	background-attachment: fixed;
 }
 
+p {
+  margin: 0;
+}
+
 .header {
   text-align: center;
   align-items: center;
@@ -38,9 +42,16 @@ body {
   color: #5a5a5a;
 }
 
+.current__date {
+  font-style: 3em;
+  color: #5a5a5a;
+}
+
 .current__temp {
   color: #5a5a5a;
   font-size: 4em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
 }
 
 
@@ -51,7 +62,7 @@ body {
   color: #5a5a5a;
   text-align: center;
   margin-left: -80px;
-  margin-bottom: 2em;
+  /*margin-bottom: 2em;*/
 }
 
 .forecast__icon {
@@ -68,18 +79,55 @@ body {
 .details__row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2em;
   font-size: 20px;
 }
 
 .details__item {
   flex: 1;
+  padding-top: 15px;
 }
 
 .details__value {
   font-style: 1.5em;
+  padding-top: 7px;
 }
 
+.next__days {
+  font-family: oswald, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  color: #5a5a5a;
+  text-align: center;
+  margin-left: -80px;
+  margin-top: 2em;
+}
+
+.next__icon {
+  width: 80px;
+  align-items: center;
+  height: 80px;
+  margin-left: 20px;
+
+}
+
+.next__temp {
+  display: flex;
+  justify-content: space-between;
+  font-family: Oswald, sans-serif;
+}
+
+.next__mintemp {
+  padding-right: 2em;
+}
+
+
+.week__title {
+  text-align: center;
+  font-family: Anton;
+  color: #5a5a5a;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #000;
+}
 
 
 
