@@ -1,5 +1,10 @@
-   fetch ('http://api.openweathermap.org/data/2.5/forecast?q=Ivano-Frankivsk&cnt=16&appid=742198c70f710c4c4e1999121c8c386b')
+   	var button = document.querySelector('.button');
+	var input = document.querySelector('.input_text');
 
+
+
+button.addEventListener('click', function(name){
+   fetch ('http://api.openweathermap.org/data/2.5/forecast?q='+input.value+'&cnt=16&appid=742198c70f710c4c4e1999121c8c386b&lang=en, ru, ua,uk')
 	.then (function (resp) { return resp.json() }) //convert to json
 	.then (function (data) {
 		console.log(data);
@@ -10,13 +15,17 @@
 		document.querySelector('.humidity').innerHTML = data.list[0].main.humidity + "%";
 		document.querySelector('.pressure').innerHTML = Math.round(data.list[0].main.pressure / 1.33) + "мм";
 		document.querySelector('.wind').innerHTML = Math.round(data.list[0].wind.speed) + "м/с";
-	})
+		getForecastDetails(data);
 
-	fetch ('https://api.openweathermap.org/data/2.5/onecall?lat=48.5&lon=24.5&appid=742198c70f710c4c4e1999121c8c386b')
-	.then (function (resp) { return resp.json() }) //convert to json
-	.then (function (data1) {
-		console.log(data1);
-		getNextDaysDetails(data1);
+		var lat = data.city.coord.lat;
+		var lon = data.city.coord.lon;
+
+			fetch ('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&appid=742198c70f710c4c4e1999121c8c386b')
+				.then (function (resp) { return resp.json() }) //convert to json
+				.then (function (data1) {
+					console.log(data1);
+					getNextDaysDetails(data1);
+				})
 	})
 
 	Number.prototype.pad = function(size) {
@@ -93,22 +102,6 @@
 	const pressureUnit = ' мм. рт. ст.';
 	const windUnit = ' м/с';
 
-	var currentData;
-
-	async function getData() {
-	  let response = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Ivano-Frankivsk&cnt = 16&appid=742198c70f710c4c4e1999121c8c386b');
-
-	  if (response.ok) {
-	    let jsonData = response.json();
-	    return jsonData;
-	  } else {
-	    alert('Error: ' + response.status);
-	  }
-	}
-
-	function convertPressure(value) {
-	  return (value/1.33 ).toFixed();
-	}
 
 	function getValueWithUnit(value, unit) {
 	  return `${value}${unit}`;
@@ -118,16 +111,4 @@
 	  var roundedValue = value.toFixed();
 	  return getValueWithUnit(roundedValue, temperatureUnit);
 	}
-
-	function render(data) {
-	  getForecastDetails(data);
-	}
-
-	function start() {
-	  getData().then(data => {
-	    currentData = data;
-	    render(data);
-	  })
-	}
-
-	start();
+})
