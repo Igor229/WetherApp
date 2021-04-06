@@ -8,14 +8,12 @@ button.addEventListener('click', function(name){
 	.then (function (resp) { return resp.json() }) //convert to json
 	.then (function (data) {
 		console.log(data);
-		document.querySelector('.current__city').textContent = data.city.name;
-		document.querySelector('.current__date').innerHTML = data.list[0].dt_txt;
-		document.querySelector('.current__temp').innerHTML = Math.round(data.list[0].main.temp - 273.15) + '&deg;';
 		document.querySelector('.feelslike').innerHTML = Math.round(data.list[0].main.feels_like - 273.15) + '&deg;';
 		document.querySelector('.humidity').innerHTML = data.list[0].main.humidity + "%";
 		document.querySelector('.pressure').innerHTML = Math.round(data.list[0].main.pressure / 1.33) + "мм";
 		document.querySelector('.wind').innerHTML = Math.round(data.list[0].wind.speed) + "м/с";
 		getForecastDetails(data);
+		getCurrentDetails(data);
 
 		var lat = data.city.coord.lat;
 		var lon = data.city.coord.lon;
@@ -42,7 +40,32 @@ button.addEventListener('click', function(name){
 		  return hours;
 		}
 
+// ================================================
 
+function getCurrentDetails (data) {
+	let currentDataContainer = document.querySelector('.current');
+	let current = ''
+
+	for (let i = 0; i < 1; i++) {
+		let item = data.list[i];
+
+		let cityName = data.city.name;
+		let icon = item.weather[0].icon;
+		let temp = getTemperature(item.main.temp -273.15);
+		let date = data.list[0].dt_txt;
+
+		let ctemplate = `<div class="current">
+			<div class="current__city">${cityName}</div>
+			<div class="current__icon icon__${icon}"></div>
+			<div class="current__date">${date}</div>
+			<div class="current__temp">${temp}</div>
+			</div>`;
+			current += ctemplate;
+	}
+	currentDataContainer.innerHTML = current;
+}
+
+// ================================================
 	function getForecastDetails (data) {
 		let forecastDataContainer = document.querySelector('.forecast');
 		let forecasts = ''

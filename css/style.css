@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 body {
-	background-image: url("jason.png");
-	background-repeat: no-repeat;
-	background-position: 120% 40%;
-	background-attachment: fixed;
+  background-image: url("bcg1.png");
+  background-repeat: no-repeat;
+  background-position: 75% 150px;
+  background-size: auto 730px;
 }
 
 p {
@@ -14,36 +14,47 @@ p {
 }
 
 input[type="text"] {
-  height: 50px;
+  height: 32px;
   width: 600px;
   background: #e7e7e7;
   font-family: oswald, sans-serif;
   font-weight: bold;
   font-style: 40px;
   border: none;
-  border-radius: 2px;
+  border-radius: 35px 0px 0px 35px;
   padding-left: 5px;
+  padding-bottom: 1.5px;
 }
 
 input[type="submit"] {
-  height: 50px;
-  width: 100px;
+  height: 35px;
+  width: 50px;
   background: #e7e7e7;
   font-family: oswald, sans-serif;
   font-weight: bold;
   font-style: 40px;
   border: none;
-  border-radius: 2px;
-}
-
-.input {
-  text-align: center;
-  margin: 2em;
+  border-radius: 0% 35% 35% 0%;
 }
 
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
+  background-color: #136F6E;
+}
+
+.logo {
+  width: 138px;
+  height: 110px;
+  padding: 12px 0px 15px 40px;
+}
+
+.input {
+  padding-right: 350px;
+  text-align: center;
+  margin: 2em;
 }
 
 .wether {
@@ -53,9 +64,14 @@ input[type="submit"] {
 
 
 .wether__inner {
-  max-width: 900px;
+  /*max-width: 900px;*/
   margin: 0 auto;
   padding: 1em;
+}
+
+.bcg {
+  width: auto;
+  height: 735px;
 }
 
 
@@ -63,11 +79,24 @@ input[type="submit"] {
   font-family: Anton;
   text-align: center;
   margin-bottom: 2em;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  height: 270px;
+  align-items: center;
+  background-color: #136F6E;
+  border-radius: 40px 40px;
 }
 
 .current__city {
   font-size: 3em;
   color: #5a5a5a;
+}
+
+.current__icon {
+  width: 80px;
+  height: 80px;
 }
 
 .current__date {
@@ -79,17 +108,17 @@ input[type="submit"] {
   color: #5a5a5a;
   font-size: 4em;
   padding-bottom: 10px;
-  border-bottom: 1px solid #000;
+  /*border-bottom: 1px solid #000;*/
 }
 
 
 .forecast {
+  max-width: 900px;
   font-family: oswald, sans-serif;
   display: flex;
   justify-content: space-between;
   color: #5a5a5a;
   text-align: center;
-  margin-left: -80px;
   /*margin-bottom: 2em;*/
 }
 
@@ -121,6 +150,7 @@ input[type="submit"] {
 }
 
 .next__days {
+  max-width: 900px;
   font-family: oswald, sans-serif;
   display: flex;
   justify-content: space-between;
@@ -154,7 +184,7 @@ input[type="submit"] {
   font-family: Anton;
   color: #5a5a5a;
   padding-bottom: 1em;
-  border-bottom: 1px solid #000;
+  /*border-bottom: 1px solid #000;*/
 }
 
 
